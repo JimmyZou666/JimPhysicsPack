@@ -1,4 +1,6 @@
-﻿public class AABBCollisionAlgorithm : ICollisionAlgorithm
+﻿using JimPhysicsPack;
+
+public class AABBCollisionAlgorithm : ICollisionAlgorithm
 {
     public bool IsColliding(ICollider thisCollider, ICollider otherCollider)
     {
