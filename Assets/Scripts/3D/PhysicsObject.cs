@@ -6,13 +6,13 @@ namespace JimPhysicsPack
 {
     public class PhysicsObject : MonoBehaviour
     {
-        [SerializeField] public new ICollider collider;
+        [SerializeField] public new Collider collider;
 
         public bool isColliding = false;
 
         private void Start()
         {
-            collider = GetComponent<ICollider>();
+            collider = GetComponent<Collider>();
 
             PhysicsWorld.allPhysicsObjects.Add(this);
         }
@@ -40,7 +40,7 @@ namespace JimPhysicsPack
             // @improve:目前为直接遍历，需要进行空间优化
             foreach (PhysicsObject otherObj in PhysicsWorld.allPhysicsObjects)
             {
-                ICollisionAlgorithm collisionAlgorithm = null;
+                CollisionAlgorithm collisionAlgorithm = null;
                 // 切换算法
 
                 // 如果都是方形碰撞盒

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace JimPhysicsPack
 {
-    public class AABBCollider : BoxCollider, ICollider
+    public class AABBCollider2D : BoxCollider2D
     {
-        public Vector3 min => transform.position - size / 2;
-        public Vector3 max => transform.position + size / 2;
+        public Vector2 min => (Vector2)transform.position - size / 2;
+        public Vector2 max => (Vector2)transform.position + size / 2;
 
         private void Update()
         {
