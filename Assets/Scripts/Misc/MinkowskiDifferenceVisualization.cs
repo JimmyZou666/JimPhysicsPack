@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using JimDevPack.Geometry;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace JimPhysicsPack
@@ -8,21 +11,22 @@ namespace JimPhysicsPack
     public class MinkowskiDifferenceVisualization : MonoBehaviour
     {
         public PolygonCollider2D polygon1, polygon2;
-        public PolygonCollider2D resultPolygon;
+        public List<Vector2> resultPointsSet;
+        public PolygonCollider2D hullPolygon;
 
         public void Awake()
         {
-            resultPolygon = GetComponent<PolygonCollider2D>();
+            hullPolygon = GetComponent<PolygonCollider2D>();
 
-            if (resultPolygon.points == null)
-                resultPolygon.points = new List<Vector2>();
+            if (hullPolygon.points == null)
+                hullPolygon.points = new List<Vector2>();
         }
         private void Update()
         {
-            if (!Application.isPlaying)
+            if (polygon1 != null && polygon2 != null && polygon1.points != null && polygon2.points != null)
             {
-                if (polygon1 != null && polygon2 != null && polygon1.points != null && polygon2.points != null)
-                    resultPolygon.points = MinkowskiDifference(polygon1.points, polygon2.points);
+                resultPointsSet = MinkowskiDifference(polygon1.points, polygon2.points);
+                hullPolygon.points = ConvexHullHelper.CalculateConvexHullByGraham(resultPointsSet);
             }
         }
 
@@ -45,6 +49,24 @@ namespace JimPhysicsPack
         {
             Gizmos.color = Color.black;
             Gizmos.DrawSphere(Vector3.zero, 0.02f);
+            Handles.Label(new Vector2(0.02f, 0.02f), "原点");
+
+            Gizmos.color = Color.yellow;
+            foreach (Vector2 point in resultPointsSet)
+            {
+                Gizmos.DrawSphere(point, 0.015f);
+            }
+
+            Gizmos.color = Color.yellow;
+            var hullPoints = hullPolygon.points;
+            if (hullPoints.Count > 1)
+            {
+                for (int i = 0; i < hullPoints.Count - 1; i++)
+                {
+                    Gizmos.DrawLine(hullPoints[i], hullPoints[i + 1]);
+                }
+                Gizmos.DrawLine(hullPoints.Last(), hullPoints[0]);
+            }
         }
     }
 }

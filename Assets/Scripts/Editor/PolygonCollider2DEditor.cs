@@ -62,7 +62,7 @@ namespace JimPhysicsPack
                 Handles.color = new Color(0, 0, 1, 1f);
                 EditorGUI.BeginChangeCheck();
                 // 绘制一个可自由移动的Handle
-                Vector2 newTargetPosition = Handles.FreeMoveHandle(polygonCollider.points[i], Quaternion.identity, 0.03f, new Vector2(0.5f, 0.5f), Handles.DotHandleCap);
+                Vector2 newTargetPosition = Handles.FreeMoveHandle(polygonCollider.points[i], Quaternion.identity, 0.02f, new Vector2(0.5f, 0.5f), Handles.DotHandleCap);
                 if (EditorGUI.EndChangeCheck())
                 {
                     // 记录信息，为了响应撤销

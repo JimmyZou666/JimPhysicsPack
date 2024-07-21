@@ -193,6 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135986199}
   - component: {fileID: 135986200}
+  - component: {fileID: 135986201}
   m_Layer: 0
   m_Name: PolygonCollider2D
   m_TagString: Untagged
@@ -228,10 +229,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: 2.0254388, y: 0.46772328}
-  - {x: 1.5337273, y: -0.08540058}
-  - {x: 1.4464004, y: -0.013662547}
-  - {x: 1.3760681, y: 0.30640393}
+  - {x: 0.83825195, y: 0.25301534}
+  - {x: 1.0570111, y: 0.25496742}
+  - {x: 1.0464524, y: -0.0020693243}
+  - {x: 0.8288139, y: 0.0040519536}
+--- !u!114 &135986201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135986197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a681a6251570674da42620e6bcaf2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 135986200}
+  isColliding: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782628376}
   - component: {fileID: 782628378}
-  - component: {fileID: 782628377}
+  - component: {fileID: 782628379}
   m_Layer: 0
   m_Name: MinkowskiDifferenceVisualization
   m_TagString: Untagged
@@ -359,21 +374,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &782628377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782628375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 444281a73f5d17f488d8c6851c9737cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  polygon1: {fileID: 135986200}
-  polygon2: {fileID: 2099513123}
-  resultPolygon: {fileID: 782628378}
 --- !u!114 &782628378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,22 +387,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: 0.05723834, y: 0.6384185}
-  - {x: 0.26624238, y: 0.28051597}
-  - {x: -0.41622376, y: 0.15503487}
-  - {x: -0.4511025, y: 0.37191895}
-  - {x: -0.43447316, y: 0.085294634}
-  - {x: -0.22546911, y: -0.2726079}
-  - {x: -0.90793526, y: -0.398089}
-  - {x: -0.942814, y: -0.18120492}
-  - {x: -0.52180004, y: 0.15703267}
-  - {x: -0.312796, y: -0.20086986}
-  - {x: -0.99526215, y: -0.32635096}
-  - {x: -1.0301409, y: -0.10946688}
-  - {x: -0.59213233, y: 0.47709915}
-  - {x: -0.3831283, y: 0.11919662}
-  - {x: -1.0655944, y: -0.0062844753}
-  - {x: -1.1004732, y: 0.2105996}
+  - {x: -0.4549241, y: -0.25134766}
+  - {x: -0.44436538, y: 0.0056890994}
+  - {x: -0.31153095, y: 0.24362886}
+  - {x: -0.093892455, y: 0.23750758}
+  - {x: 0.07805407, y: -0.0033803284}
+  - {x: 0.06861603, y: -0.2523437}
+  - {x: -0.15014315, y: -0.2542958}
+--- !u!114 &782628379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782628375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444281a73f5d17f488d8c6851c9737cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polygon1: {fileID: 2099513123}
+  polygon2: {fileID: 135986200}
+  resultPointsSet:
+  - {x: -0.15014315, y: -0.2542958}
+  - {x: -0.10333049, y: -0.011455804}
+  - {x: -0.32208967, y: -0.013407886}
+  - {x: -0.31153095, y: 0.24362886}
+  - {x: -0.093892455, y: 0.23750758}
+  - {x: -0.23616493, y: -0.24939556}
+  - {x: -0.4549241, y: -0.25134766}
+  - {x: -0.44436538, y: 0.0056890994}
+  - {x: -0.22672689, y: -0.00043217838}
+  - {x: 0.06861603, y: -0.2523437}
+  - {x: -0.13958442, y: 0.0027409494}
+  - {x: 0.07805407, y: -0.0033803284}
+  hullPolygon: {fileID: 782628378}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099513124}
   - component: {fileID: 2099513123}
+  - component: {fileID: 2099513125}
   m_Layer: 0
   m_Name: PolygonCollider2D (1)
   m_TagString: Untagged
@@ -697,10 +717,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: 1.9682004, y: -0.17069522}
-  - {x: 1.7591964, y: 0.18720731}
-  - {x: 2.4416625, y: 0.3126884}
-  - {x: 2.4765413, y: 0.09580433}
+  - {x: 0.73492146, y: 0.24155954}
+  - {x: 0.602087, y: 0.0036197752}
+  - {x: 0.906868, y: 0.00067162514}
 --- !u!4 &2099513124
 Transform:
   m_ObjectHideFlags: 0
@@ -716,3 +735,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2099513125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099513122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a681a6251570674da42620e6bcaf2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 2099513123}
+  isColliding: 0

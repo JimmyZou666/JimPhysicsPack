@@ -54,6 +54,11 @@ namespace JimPhysicsPack
                     //collisionAlgorithm = new OBBCollisionAlgorithm();
                 }
 
+                if (collider is PolygonCollider2D && otherObj.collider is PolygonCollider2D)
+                {
+                    collisionAlgorithm = new GJKCollisionAlgorithm2D();
+                }
+
                 // 检测碰撞
                 if (otherObj != this && collisionAlgorithm != null && collisionAlgorithm.IsColliding(collider, otherObj.collider))
                 {
@@ -73,6 +78,19 @@ namespace JimPhysicsPack
                 {
                     AABBCollider2D c = (AABBCollider2D)collider;
                     Gizmos.DrawWireCube(c.transform.position, c.size);
+                }
+                else if (collider is PolygonCollider2D)
+                {
+                    PolygonCollider2D c = (PolygonCollider2D)collider;
+                    List<Vector2> points = c.points;
+                    if (points.Count > 1)
+                    {
+                        for (int i = 0; i < points.Count - 1; i++)
+                        {
+                            Gizmos.DrawLine(points[i], points[i + 1]);
+                        }
+                        Gizmos.DrawLine(points[points.Count - 1], points[0]);
+                    }
                 }
             }
         }

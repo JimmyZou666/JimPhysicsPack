@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JimDevPack.Geometry;
 
 namespace JimPhysicsPack
 {
@@ -10,7 +11,11 @@ namespace JimPhysicsPack
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.green;
+            if (!ConvexHullHelper.IsConvex(points))
+                Gizmos.color = Color.magenta;
+            else
+                Gizmos.color = Color.green;
+
             if (points.Count > 1)
             {
                 for (int i = 0; i < points.Count - 1; i++)
