@@ -2,12 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using JimDevPack.Geometry;
+using System.Linq;
 
 namespace JimPhysicsPack
 {
     public class PolygonCollider2D : Collider2D
     {
-        public List<Vector2> points;
+        public List<Vector2> points
+        {
+            get
+            {
+                Vector2 transformPosition = transform.position;
+                return localPoints.Select(p => p + transformPosition).ToList();
+            }
+            set
+            {
+                Vector2 transformPosition = transform.position;
+                localPoints = value.Select(p => p - transformPosition).ToList();
+            }
+        }
+
+        public List<Vector2> localPoints;
 
         private void OnDrawGizmos()
         {

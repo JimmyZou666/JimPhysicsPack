@@ -12,9 +12,9 @@ namespace JimPhysicsPack
         private void OnEnable()
         {
             polygonCollider = (PolygonCollider2D)target;
-            if (polygonCollider.points == null)
+            if (polygonCollider.localPoints == null)
             {
-                polygonCollider.points = new List<Vector2>();
+                polygonCollider.localPoints = new List<Vector2>();
             }
         }
 
@@ -24,7 +24,7 @@ namespace JimPhysicsPack
 
             if (GUILayout.Button("Add Point"))
             {
-                polygonCollider.points.Add(new Vector2());
+                polygonCollider.localPoints.Add(new Vector2());
             }
         }
 
@@ -52,7 +52,7 @@ namespace JimPhysicsPack
                 if (closestIndex != -1)
                 {
                     Undo.RecordObject(polygonCollider, "Remove Point");
-                    polygonCollider.points.RemoveAt(closestIndex);
+                    polygonCollider.localPoints.RemoveAt(closestIndex);
                     guiEvent.Use();
                 }
             }
@@ -68,7 +68,7 @@ namespace JimPhysicsPack
                     // 记录信息，为了响应撤销
                     Undo.RecordObject(polygonCollider, "Move Point");
                     // 赋值新位置
-                    polygonCollider.points[i] = newTargetPosition;
+                    polygonCollider.localPoints[i] = newTargetPosition - (Vector2)polygonCollider.transform.position;
                 }
             }
         }

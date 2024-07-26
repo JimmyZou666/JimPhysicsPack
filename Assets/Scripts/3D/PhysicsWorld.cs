@@ -6,4 +6,5 @@ using UnityEngine;
 public static class PhysicsWorld
 {
     public static List<PhysicsObject> allPhysicsObjects = new List<PhysicsObject>();
+
 }
