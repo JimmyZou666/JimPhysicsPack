@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.TextCore.Text;
 using UnityEngine;
 
-namespace JimPhysicsPack
+namespace JimDevPack.Physics
 {
     public class GJKCollisionAlgorithm2D : CollisionAlgorithm2D
     {

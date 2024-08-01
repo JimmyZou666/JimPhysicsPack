@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace JimPhysicsPack
+namespace JimDevPack.Physics
 {
     [RequireComponent(typeof(PolygonCollider2D))]
     [ExecuteInEditMode]

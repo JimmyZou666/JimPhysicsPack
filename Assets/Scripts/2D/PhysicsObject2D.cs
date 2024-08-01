@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace JimPhysicsPack
+namespace JimDevPack.Physics
 {
     public class PhysicsObject2D : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace JimPhysicsPack
+namespace JimDevPack.Physics
 {
     public class Collider : MonoBehaviour
     {

@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using JimDevPack.Geometry;
 using System.Linq;
 
-namespace JimPhysicsPack
+namespace JimDevPack.Physics
 {
     public class PolygonCollider2D : Collider2D
     {

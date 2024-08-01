@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace JimPhysicsPack
+namespace JimDevPack.Physics
 {
     public class BoxCollider2D : Collider2D
     {

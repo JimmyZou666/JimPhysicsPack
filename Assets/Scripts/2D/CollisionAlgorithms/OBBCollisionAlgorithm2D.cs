@@ -1,7 +1,5 @@
-﻿using System;
-using UnityEngine;
-
-namespace JimPhysicsPack
+﻿
+namespace JimDevPack.Physics
 {
     public class OBBAlgorithm2D : CollisionAlgorithm2D
     {

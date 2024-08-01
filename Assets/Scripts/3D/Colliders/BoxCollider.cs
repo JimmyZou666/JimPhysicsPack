@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace JimPhysicsPack
+namespace JimDevPack.Physics
 {
     public class BoxCollider : Collider
     {

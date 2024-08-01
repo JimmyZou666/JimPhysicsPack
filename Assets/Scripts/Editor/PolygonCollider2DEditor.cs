@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace JimPhysicsPack
+namespace JimDevPack.Physics
 {
     [CustomEditor(typeof(PolygonCollider2D))]
     public class PolygonCollider2DEditor : Editor

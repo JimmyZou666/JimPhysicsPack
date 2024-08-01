@@ -1,4 +1,4 @@
-﻿namespace JimPhysicsPack
+﻿namespace JimDevPack.Physics
 {
     public class AABBCollisionAlgorithm2D : CollisionAlgorithm2D
     {
