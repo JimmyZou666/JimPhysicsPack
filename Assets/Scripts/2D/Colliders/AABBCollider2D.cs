@@ -14,8 +14,14 @@ namespace JimDevPack.Physics
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        private void OnDrawGizmos()
+        public override (Vector2 min, Vector2 max) GetAABB()
         {
+            return (min, max);
+        }
+
+        public new void OnDrawGizmos()
+        {
+            base.OnDrawGizmos();
             // 绘制AABB边界
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, size);
